@@ -27,6 +27,11 @@
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- Leaflet -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+  
 </head>
 
 <body>
@@ -44,6 +49,8 @@
         <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Resume</span></a></li>
         <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Portfolio</span></a></li>
         <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Contact</span></a></li>
+        <li><a href="#dashboard" class="nav-link scrollto"><i class="bx bx-bar-chart"></i> <span>Dashboard</span></a></li>
+
       </ul>
     </nav><!-- .nav-menu -->
 
@@ -573,6 +580,22 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+
+  <!-- leaflet -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    var map = L.map('map').setView([22.302711, 114.177216], 11);  // Coordinates for Hong Kong
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Add a marker
+    L.marker([22.302711, 114.177216]).addTo(map)
+      .bindPopup('Hong Kong')
+      .openPopup();
+  });
+</script>
 
 </body>
 
