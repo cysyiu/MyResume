@@ -484,7 +484,7 @@
   <script>
   document.addEventListener('DOMContentLoaded', function() {
     // Initialize the map
-    var map = L.map('mapContainer').setView([0, 0], 2);
+    var map = L.map('mapContainer').setView([22.3193, 114.1694], 10);
 
     // Add a tile layer (you can choose different providers)
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -494,7 +494,7 @@
     // Function to fetch data from API and add markers
     function fetchDataAndAddMarkers() {
       // Replace with your actual API endpoint
-      fetch('https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634955821131_79239/MapServer/WFSServer?service=wfs&request=GetCapabilities')
+      fetch('https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634955821131_79239/FeatureServer')
         .then(response => response.json())
         .then(data => {
           data.forEach(location => {
