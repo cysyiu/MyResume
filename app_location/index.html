@@ -484,8 +484,8 @@
     </section>
     <!-- End Map Section -->
   
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
     // Initialize the map
     var map = L.map('mapContainer').setView([22.3193, 114.1694], 10);
 
@@ -493,25 +493,6 @@
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
     }).addTo(map);
-
-    // Function to fetch data from API and add markers
-    function fetchDataAndAddMarkers() {
-      // Replace with your actual API endpoint
-      fetch('https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634955821131_79239/FeatureServer/0')
-        .then(response => response.json())
-        .then(data => {
-          data.forEach(location => {
-            L.marker([location.latitude, location.longitude])
-              .addTo(map)
-              .bindPopup(location.name);
-          });
-        })
-        .catch(error => console.error('Error fetching data:', error));
-    }
-
-        // Call the function to fetch data and add markers
-        fetchDataAndAddMarkers();
-      });
     </script>
   
     <!-- ======= Contact Section ======= -->
