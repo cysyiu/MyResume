@@ -598,7 +598,7 @@
   }).addTo(map);
 
   // Load and add GeoJSON data
-  fetch('assets/data/AirT.geojson')
+  fetch('assets/data/AirT.json')
     .then(response => response.json())
     .then(data => {
       var geoJsonLayer = L.geoJSON(data, {
