@@ -497,7 +497,7 @@
     // Function to fetch data from API and add markers
     function fetchDataAndAddMarkers() {
       // Replace with your actual API endpoint
-      fetch('https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634955821131_79239/FeatureServer')
+      fetch('https://portal.csdi.gov.hk/server/rest/services/common/hko_rcd_1634955821131_79239/FeatureServer/0')
         .then(response => response.json())
         .then(data => {
           data.forEach(location => {
