@@ -1,39 +1,37 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the map
-    var map = L.map('mapContainer').setView([22.3193, 114.1694], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Define the function to load WFS data
-    function loadWFS() {
-        // WFS request URL
-        var wfsUrl = 'https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634955821131_79239/MapServer/WFSServer?service=wfs&request=GetCapabilities' +
-            'service=WFS&' +
-            'version=1.1.0&' +
-            'request=GetFeature&' +
-            'typeName=your_layer_name&' +
-            'outputFormat=application/json';
-
-        fetch(wfsUrl)
-            .then(response => response.json())
-            .then(data => {
-                L.geoJSON(data, {
-                    style: function (feature) {
-                        return {color: 'blue'};
-                    },
-                    onEachFeature: function (feature, layer) {
-                        var popupContent = "";
-                        for (var property in feature.properties) {
-                            popupContent += property + ": " + feature.properties[property] + "<br>";
-                        }
-                        layer.bindPopup(popupContent);
-                    }
-                }).addTo(map);
+    var map = new ol.Map({
+        target: 'map',
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.OSM()
             })
-            .catch(error => console.error('Error:', error));
-    }
+        ],
+        view: new ol.View({
+            center: ol.proj.fromLonLat([114.1575, 22.35]), // Center on Hong Kong
+            zoom: 10
+        })
+    });
 
-    // Call the function to load WFS data
-    loadWFS();
+    var wfsSource = new ol.source.Vector({
+        format: new ol.format.GeoJSON(),
+        url: function(extent) {
+            return 'https://portal.csdi.gov.hk/server/services/common/hko_rcd_1634871488130_57930/MapServer/WFSServer?' +
+                   'service=WFS&version=1.1.0&request=GetFeature&typename=hko_rcd_1634871488130_57930&' +
+                   'outputFormat=application/json&srsname=EPSG:3857&' +
+                   'bbox=' + extent.join(',') + ',EPSG:3857';
+        },
+        strategy: ol.loadingstrategy.bbox
+    });
+
+    var wfsLayer = new ol.layer.Vector({
+        source: wfsSource,
+        style: new ol.style.Style({
+            image: new ol.style.Circle({
+                radius: 5,
+                fill: new ol.style.Fill({color: 'red'})
+            })
+        })
+    });
+
+    map.addLayer(wfsLayer);
 });
