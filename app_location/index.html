@@ -30,10 +30,6 @@
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
-
-  <!-- ArcGIS -->
-  <link rel="stylesheet" href="https://js.arcgis.com/4.24/esri/themes/light/main.css">
-  <script src="https://js.arcgis.com/4.24/"></script>
   
 </head>
 
@@ -484,16 +480,6 @@
     </section>
     <!-- End Map Section -->
   
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the map
-    var map = L.map('mapContainer').setView([22.3193, 114.1694], 10);
-
-    // Add a tile layer (you can choose different providers)
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-    }).addTo(map);
-    </script>
   
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
