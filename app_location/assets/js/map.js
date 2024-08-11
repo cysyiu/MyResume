@@ -1,35 +1,34 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Define the projection
-    var projection = ol.proj.get('EPSG:4326');
-    var projectionExtent = projection.getExtent();
+    var basemapAPI = 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/wgs84/{z}/{x}/{y}.png';
+    var labelAPI = 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/wgs84/{z}/{x}/{y}.png';
+    var attributionInfo = '<a href="https://api.portal.hkmapservice.gov.hk/disclaimer" target="_blank" class="copyrightDiv">&copy; Map information from Lands Department</a><div style="width:28px;height:28px;display:inline-flex;background:url(https://api.hkmapservice.gov.hk/mapapi/landsdlogo.jpg);background-size:28px;"></div>';
 
-    // Define the map layers
-    var basemapLayer = new ol.layer.Tile({
-        source: new ol.source.XYZ({
-            url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/wgs84/{z}/{x}/{y}.png',
-            attributions: '© Map information from Lands Department'
-        })
-    });
+    var attribution = new ol.control.Attribution({
+        collapsible: false            
+    });          
 
-    var labelLayer = new ol.layer.Tile({
-        source: new ol.source.XYZ({
-            url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/wgs84/{z}/{x}/{y}.png'
-        })
-    });
-
-    // Create the map
     var map = new ol.Map({
+        controls: ol.control.defaults({attribution: false}).extend([attribution]),     			
+        layers: [
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: basemapAPI,
+                    attributions: attributionInfo
+                })
+            }),
+            new ol.layer.Tile({
+                source: new ol.source.XYZ({
+                    url: labelAPI
+                })
+            })
+        ],
         target: 'map',
-        layers: [basemapLayer, labelLayer],
+        logo: false,
         view: new ol.View({
-            projection: projection,
-            center: ol.proj.fromLonLat([114.1694, 22.3193]), // Centered on Hong Kong
-            zoom: 11
+            center: ol.proj.fromLonLat([114.20847, 22.29227]),
+            zoom: 17,
+            minZoom: 10,
+            maxZoom: 20
         })
     });
-
-    // Add a simple control to show that the map is interactive
-    map.addControl(new ol.control.ZoomSlider());
-
-    console.log('Map initialized successfully');
 });
