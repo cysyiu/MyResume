@@ -27,6 +27,10 @@
   <!-- Template Main CSS File -->
   <link rel="stylesheet" href="assets/css/style.css">
 
+  <!-- Map -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
+  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
 </head>
 
 <body>
@@ -256,8 +260,8 @@
               <li data-filter=".filter-dac">Data Acquistion</li>
               <li data-filter=".filter-dan">Data Analysis</li>
               <li data-filter=".filter-dm">Data Management</li>
-              <li data-filter=".filter-geoai">GeoAI</li>
-              <li data-filter=".filter-cfd">CFD</li>
+              <li data-filter=".filter-map">Dynamic Map</li>
+
             </ul>
           </div>
         </div>
@@ -287,34 +291,6 @@
                 <div class="portfolio-links">
                   <a href="assets/img/portfolio/Create Dark and Light Map with R/Tsim Sha Tsui_light.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Create Dark and Light Map with R"><i class="bx bx-plus"></i></a>
                   <a href="https://github.com/cysyiu/Create-Dark-and-Light-Map-with-R/tree/main" target="_blank"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dvm">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/Port Island _Pirate.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Port Island Pirate Map</h4>
-                <p>Data Visualisation and Modeling</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/Port_Island _Pirate.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Port Island Pirate Map"><i class="bx bx-plus"></i></a>
-                  <a href="https://drive.google.com/file/d/1mHZFJvWKJMEYJscOqS9ndWYp65EqnLDP/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dvm">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/CFD.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Create Dark and Light Map with R</h4>
-                <p>Data Visualisation and Modeling</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/CFD.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="This study aims to understand the interaction between urban trees and wind with the CFD"><i class="bx bx-plus"></i></a>
-                  <a href="https://drive.google.com/file/d/1Auo9uJIrona3hqiefyF39rPwKqb5mULU/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
                 </div>
               </div>
             </div>
@@ -392,47 +368,9 @@
             </div>
           </div>
 
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 1</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 1"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Card 3</h4>
-                <p>Card</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Card 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
-
-          <!-- <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Web 3</h4>
-                <p>Web</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Web 3"><i class="bx bx-plus"></i></a>
-                  <a href="portfolio-details.html" class="portfolio-details-lightbox" data-glightbox="type: external" title="Portfolio Details"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div> -->
+          <div class="col-lg-4 col-md-6 portfolio-item filter-map">
+            <div id="map"></div>
+            <script src="assets/js/map.js"></script>
 
         </div>
 
