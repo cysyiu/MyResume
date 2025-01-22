@@ -1,45 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Sam Yiu's Portfolio</title>
+    <meta content="" name="description">
+    <meta content="" name="keywords">
 
-  <title>Sam Yiu's Portfolio</title>
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/bx-map.svg">
 
-  <!-- Favicons -->
-  <link rel="icon" href="assets/img/bx-map.svg">
-  <!-- <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon"> -->
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+    <!-- CSS Libraries -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" rel="stylesheet">
+    
+    <!-- Map Libraries -->
+	<link rel="stylesheet" href="https://openlayers.org/en/v6.6.1/css/ol.css" type="text/css">
+	<script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
+	
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/style.css">
+	
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/mcstudios/glightbox/dist/js/glightbox.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/noframework.waypoints.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
-  <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="assets/vendor/aos/aos.css">
-  <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="assets/vendor/boxicons/css/boxicons.min.css">
-  <link rel="stylesheet" href="assets/vendor/glightbox/css/glightbox.min.css">
-  <link rel="stylesheet" href="assets/vendor/swiper/swiper-bundle.min.css">
-
-  <!-- Template Main CSS File -->
-  <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- Map -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/css/ol.css" type="text/css">
-  <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.5.0/build/ol.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
-  <script src="assets/js/map.js"></script>
-
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js"></script>
+	<script src="assets/js/weather.js"></script>
+	
 </head>
 
 <body>
-
-  <!-- ======= Mobile nav toggle button ======= -->
-  <!-- <button type="button" class="mobile-nav-toggle d-xl-none"><i class="bi bi-list mobile-nav-toggle"></i></button> -->
-  <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
+	<!-- Mobile Navigation Toggle -->
+    <i class="bi bi-list mobile-nav-toggle d-lg-none"></i>
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex flex-column justify-content-center">
 
@@ -62,13 +72,14 @@
   <main id="main">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
       <h1>Sam Yiu</h1>
-      <p>I'm <span class="typed" data-typed-items="GIS Analyst, Cartographer, "></span></p>
+      <p>I'm a <span class="typed" data-typed-items="GIS Analyst, Programmer, Data Analyst, Cartographer,"></span></p>
       <div class="social-links">
         <a href="https://www.linkedin.com/in/cysyiu/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
         <a href="https://github.com/cysyiu" class="home__social-icon" target="_blank"><i class='bx bxl-github' ></i></a>
       </div>
     </div>
-  </section><!-- End Hero -->
+  </section>
+  <!-- End Hero -->
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
@@ -83,93 +94,93 @@
     <!-- End About Section -->
 
     <!-- ======= Skills Section ======= -->
-    <section id="skills" class="skills section-bg">
-      <div class="container" data-aos="fade-up">
+    <!-- <section id="skills" class="skills section-bg"> -->
+      <!-- <div class="container" data-aos="fade-up"> -->
 
-        <div class="section-title">
-          <h2>Skills</h2>
-          <p>Here is an overview of my proficiency in various technical skills:</p>
-        </div>
+        <!-- <div class="section-title"> -->
+          <!-- <h2>Skills</h2> -->
+          <!-- <p>Here is an overview of my proficiency in various technical skills:</p> -->
+        <!-- </div> -->
 
-        <div class="row skills-content">
+        <!-- <div class="row skills-content"> -->
 
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6"> -->
 
-            <div class="progress">
-              <span class="skill">ArcGIS Pro <a href='https://drive.google.com/file/d/1eSfITIjunrBuRGUCe2tWG_K5xh-RlgYk/view?usp=sharing' target="_blank"><i class='bx bxs-certification'></i></a></i> <i class="val">95%</i></span> 
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">ArcGIS Pro <a href='https://drive.google.com/file/d/1eSfITIjunrBuRGUCe2tWG_K5xh-RlgYk/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i> <i class="val">95%</i></span>  -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">QGIS<i class="val">95%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">QGIS<i class="val">95%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">Drone Pilot <a href='https://drive.google.com/file/d/1h6l7uF6b6CK8BPn8r3XdAbOGdBCNqHtr/view?usp=sharing' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">Drone Pilot <a href='https://drive.google.com/file/d/1h6l7uF6b6CK8BPn8r3XdAbOGdBCNqHtr/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">75%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">Python <i class="val">65%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">Python <i class="val">65%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">Azure <a href='https://learn.microsoft.com/api/credentials/share/en-us/ChunYinYIU-7504/8BB5D3F4B79C11B1?sharingId=BB9B37FA629A2FB6' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">40%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">Azure <a href='https://learn.microsoft.com/api/credentials/share/en-us/ChunYinYIU-7504/8BB5D3F4B79C11B1?sharingId=BB9B37FA629A2FB6' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">40%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
             
-          </div>
+          <!-- </div> -->
 
-          <div class="col-lg-6">
+          <!-- <div class="col-lg-6"> -->
 
-            <div class="progress">
-              <span class="skill">FME <a href='https://drive.google.com/file/d/1irL0bl-ef5ngRkHSvaK-NZBc0b4eh_CP/view?usp=sharing' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">FME <a href='https://drive.google.com/file/d/1irL0bl-ef5ngRkHSvaK-NZBc0b4eh_CP/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">80%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">SQL Server <i class="val">55%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">SQL Server <i class="val">55%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">HTML <i class="val">50%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">HTML <i class="val">50%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
 
-            <div class="progress">
-              <span class="skill">R <i class="val">50%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
+            <!-- <div class="progress"> -->
+              <!-- <span class="skill">R <i class="val">50%</i></span> -->
+              <!-- <div class="progress-bar-wrap"> -->
+                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
+              <!-- </div> -->
+            <!-- </div> -->
+          <!-- </div> -->
+        <!-- </div> -->
+        <!-- </div> -->
 
-      </div>
+      <!-- </div> -->
       
 
-    </div>
-    </section>
+    <!-- </div> -->
+    <!-- </section> -->
     <!-- End Skills Section -->
 
     <!-- ======= Resume Section ======= -->
@@ -177,37 +188,15 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Resume <a href="https://drive.google.com/file/d/1lEnVvV2vmtlLpZQvrvV6TRrI3j7SqGvL/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a></h2>
+          <h2>Resume <a href="https://drive.google.com/file/d/1lEnVvV2vmtlLpZQvrvV6TRrI3j7SqGvL/view?usp=sharing" class='glightbox' data-glightbox='type: iframe' target="_blank"><i class="bx bx-link"></i></a></h2>
         </div>
 
         <div class="row">
-          <div class="col-lg-6">
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Science in Geomatics</br> (Geographic Information Systems)</h4>
-              <p><em><b>The Hong Kong Polytechnic University</b></em></p>
-              <h5>Sep 2019 - Dec 2021</h5>
-              <ul>
-                <li>Spatial Data Acquisition</li>
-                <li>Spatial Data Visualization and Modeling</li>
-                <li>Remote Sensing Image Processing</li>
-                <li>Spatial Data Analysis and Mining</li>
-                <li>Urban Informatics</li>
-                <li>Advanced Geographic Information Systems</li>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Arts</br>(Geography &amp; Development Studies)</h4>
-              <p><em><b>Australian National University</b></em></p>
-              <h5>Feb 2016 - Dec 2018</h5>
-              <ul>
-                <li>Contributed on a voluntary basis to innovation ANU campus fear mapping project.</li>
-              </ul>
-            </div>
-          </div>
+
           <div class="col-lg-6">
             <h3 class="resume-title">Work Experience</h3>
             <div class="resume-item">
-              <h4>Contract Analyst Programmer</h4>
+              <h4>Analyst Programmer</h4>
               <p><em><b>Hong Kong Observatory</b></em></p>
               <h5>Sep 2024 - Present</h5>
               <ul>
@@ -222,7 +211,7 @@
             <div class="resume-item">
               <h4>Data Scientist</h4>
               <p><em><b>Dimap HK</b></em></p>
-              <h5>Jun 2024 - Sep 2024 2024</h5>
+              <h5>Jun 2024 - Sep 2024</h5>
               <ul>
                 <li>Collecting and interpreting data</li>
                 <li>Develop complex mathematical models that integrate business rules and requirements</li>
@@ -254,6 +243,31 @@
               </ul>
             </div>
           </div>
+		  
+		            <div class="col-lg-6">
+            <h3 class="resume-title">Education</h3>
+            <div class="resume-item">
+              <h4>Master of Science in Geomatics</br> (Geographic Information Systems)</h4>
+              <p><em><b>The Hong Kong Polytechnic University</b></em></p>
+              <h5>Sep 2019 - Dec 2021</h5>
+              <ul>
+                <li>Spatial Data Acquisition</li>
+                <li>Spatial Data Visualization and Modeling</li>
+                <li>Remote Sensing Image Processing</li>
+                <li>Spatial Data Analysis and Mining</li>
+                <li>Urban Informatics</li>
+                <li>Advanced Geographic Information Systems</li>
+            </div>
+            <div class="resume-item">
+              <h4>Bachelor of Arts</br>(Geography &amp; Development Studies)</h4>
+              <p><em><b>Australian National University</b></em></p>
+              <h5>Feb 2016 - Dec 2018</h5>
+              <ul>
+                <li>Contributed on a voluntary basis to innovation ANU campus fear mapping project.</li>
+              </ul>
+            </div>
+          </div>
+		  
         </div>
 
       </div>
@@ -270,11 +284,10 @@
         <div class="row">
           <div class="col-lg-12 d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
             <ul id="portfolio-flters">
-              <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-dvm">Data Visualisation and Modeling</li>
-              <li data-filter=".filter-dac">Data Acquistion</li>
-              <li data-filter=".filter-dan">Data Analysis</li>
-              <li data-filter=".filter-dm">Data Management</li>
+				<li data-filter=".filter-carto" class="filter-active">Cartography</li>
+				<li data-filter=".filter-dm">Data Management</li>
+				<li data-filter=".filter-wd">Weather Dashboard</li>
+				<!-- <li data-filter=".filter-api">Coffee Flavor API</li> -->
 
             </ul>
           </div>
@@ -282,12 +295,12 @@
 
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dvm">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-carto">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/Port Island _Pirate.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Port Island Pirate Map</h4>
-                <p>Data Visualisation and Modeling</p>
+                <p>Cartography</p>
                 <div class="portfolio-links">
                   <a href="assets/img/portfolio/Port Island _Pirate.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Port Island Pirate Map"><i class="bx bx-plus"></i></a>
                   <a href="https://drive.google.com/file/d/1mHZFJvWKJMEYJscOqS9ndWYp65EqnLDP/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
@@ -296,12 +309,12 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dvm">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-carto">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/Create Dark and Light Map with R/Tsim Sha Tsui_dark.png" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h4>Create Dark and Light Map with R</h4>
-                <p>Data Visualisation and Modeling</p>
+                <p>Cartography</p>
                 <div class="portfolio-links">
                   <a href="assets/img/portfolio/Create Dark and Light Map with R/Tsim Sha Tsui_light.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Create Dark and Light Map with R"><i class="bx bx-plus"></i></a>
                   <a href="https://github.com/cysyiu/Create-Dark-and-Light-Map-with-R/tree/main" target="_blank"><i class="bx bx-link"></i></a>
@@ -309,7 +322,16 @@
               </div>
             </div>
           </div>
+			
+			
+		<div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+			<div class="col-lg-12 col-md-12 portfolio-item filter-wd">
+				<div id="WeatherMap" style="width: 100%; height: 500px;"></div>
+			</div>
+		</div>
 
+
+		  
           <div class="col-lg-4 col-md-6 portfolio-item filter-dm">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/Address Geocoding Application.jpg" class="img-fluid" alt="">
@@ -324,51 +346,7 @@
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dan">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/Weighted MOLA.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>Evaluate and analyse the current land-use suitability on the NSW South
-                  Coast at Kioloa</h4>
-                <p>Data Analysis</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/Weighted MOLA.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Evaluate and analyse the current land-use suitability on the NSW South
-                  Coast at Kioloa"><i class="bx bx-plus"></i></a>
-                  <a href="https://drive.google.com/file/d/13Dx4fdpsYlH69_Y2hqmYRs73xALT2Kjq/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dan">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/The Spatial Pattern of Crime in Columbus, Ohio/The Spatial Pattern of Crim in Columbus, Ohio.png" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>The Spatial Pattern of Crime in Columbus, Ohio</h4>
-                <p>Data Analysis</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/LISA Cluster Map of Crime in Columbus.png" data-gallery="portfolioGallery" class="portfolio-lightbox" title="The Spatial Pattern of Crime in Columbus, Ohio"><i class="bx bx-plus"></i></a>
-                  <a href="https://drive.google.com/file/d/1iADOTG1lIm3VpH54vLsyXLJ3c6nfVCU8/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dan">
-            <div class="portfolio-wrap">
-              <img src="assets/img/portfolio/ACT car-kangaroo collisions.jpg" class="img-fluid" alt="">
-              <div class="portfolio-info">
-                <h4>An Exploratory Analysis of Car-Kangaroo collisions in the ACT</h4>
-                <p>Data Analysis</p>
-                <div class="portfolio-links">
-                  <a href="assets/img/portfolio/ACT car-kangaroo collisions.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox" title=""><i class="bx bx-plus"></i></a>
-                  <a href="https://drive.google.com/file/d/1EcSnlMnNEVyb5If3mJgN5ytXp6OtghP6/view?usp=sharing" target="_blank"><i class="bx bx-link"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-lg-4 col-md-6 portfolio-item filter-dac">
+          <div class="col-lg-4 col-md-6 portfolio-item filter-dm">
             <div class="portfolio-wrap">
               <img src="assets/img/portfolio/Digital Planning Data of Statutory Plans Downloader.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
@@ -382,15 +360,12 @@
             </div>
           </div>
 
-          <div class="portfolio-item filter-map">
-            <div id="map" class="map"></div>
-          </div>
+
         </div>
       </div>
-    </section><!-- End Portfolio Section -->
-
-
-    
+    </section>
+	
+	<!-- End Portfolio Section -->
 
 
     <!-- ======= Contact Section ======= -->
@@ -476,23 +451,8 @@
   </footer>
   <!-- End Footer -->
 
-  <div id="preloader"></div>
+
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
-
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-
-  <!-- Template Main JS File -->
-  <script src="assets/js/main.js"></script>
-
 
 </body>
 
