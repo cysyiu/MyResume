@@ -27,7 +27,8 @@
 	<script src="https://cdn.jsdelivr.net/npm/ol@latest/dist/ol.js"></script>
 	
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="preload" href="assets/css/style.css" as="style">
+	<link rel="stylesheet" href="assets/css/style.css">
 	
     <!-- JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@srexi/purecounterjs/dist/purecounter_vanilla.js"></script>
@@ -42,9 +43,9 @@
 
     
     <!-- Custom JavaScript -->
-    <script src="assets/js/main.js"></script>
-	<script src="assets/js/weather.js"></script>
-	<script src="assets/js/earthquake.js"></script>
+    <script defer src="assets/js/main.js"></script>
+	<script defer src="assets/js/weather.js"></script>
+	<script defer src="assets/js/earthquake.js"></script>
 </head>
 
 <body>
@@ -93,97 +94,7 @@
       </div>
     </section>
     <!-- End About Section -->
-
-    <!-- ======= Skills Section ======= -->
-    <!-- <section id="skills" class="skills section-bg"> -->
-      <!-- <div class="container" data-aos="fade-up"> -->
-
-        <!-- <div class="section-title"> -->
-          <!-- <h2>Skills</h2> -->
-          <!-- <p>Here is an overview of my proficiency in various technical skills:</p> -->
-        <!-- </div> -->
-
-        <!-- <div class="row skills-content"> -->
-
-          <!-- <div class="col-lg-6"> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">ArcGIS Pro <a href='https://drive.google.com/file/d/1eSfITIjunrBuRGUCe2tWG_K5xh-RlgYk/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i> <i class="val">95%</i></span>  -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">QGIS<i class="val">95%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">Drone Pilot <a href='https://drive.google.com/file/d/1h6l7uF6b6CK8BPn8r3XdAbOGdBCNqHtr/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">75%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">Python <i class="val">65%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">Azure <a href='https://learn.microsoft.com/api/credentials/share/en-us/ChunYinYIU-7504/8BB5D3F4B79C11B1?sharingId=BB9B37FA629A2FB6' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">40%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-            
-          <!-- </div> -->
-
-          <!-- <div class="col-lg-6"> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">FME <a href='https://drive.google.com/file/d/1irL0bl-ef5ngRkHSvaK-NZBc0b4eh_CP/view?usp=sharing' class='glightbox' data-glightbox='type: iframe' target="_blank"><i class='bx bxs-certification'></i></a></i><i class="val">80%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">SQL Server <i class="val">55%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">HTML <i class="val">50%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-
-            <!-- <div class="progress"> -->
-              <!-- <span class="skill">R <i class="val">50%</i></span> -->
-              <!-- <div class="progress-bar-wrap"> -->
-                <!-- <div class="progress-bar" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div> -->
-              <!-- </div> -->
-            <!-- </div> -->
-          <!-- </div> -->
-        <!-- </div> -->
-        <!-- </div> -->
-
-      <!-- </div> -->
-      
-
-    <!-- </div> -->
-    <!-- </section> -->
-    <!-- End Skills Section -->
-
+	
     <!-- ======= Resume Section ======= -->
     <section id="resume" class="resume">
       <div class="container" data-aos="fade-up">
