@@ -426,93 +426,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Facts
---------------------------------------------------------------*/
-.facts .count-box {
-  padding: 30px 30px 25px 30px;
-  margin-top: 30px;
-  width: 100%;
-  position: relative;
-  text-align: center;
-  background: #fff;
-}
-
-.facts .count-box i {
-  position: absolute;
-  top: -25px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 24px;
-  background: #0563bb;
-  color: #fff;
-  border-radius: 50px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 48px;
-  height: 48px;
-}
-
-.facts .count-box span {
-  font-size: 36px;
-  display: block;
-  font-weight: 600;
-  color: #011426;
-}
-
-.facts .count-box p {
-  padding: 0;
-  margin: 0;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
-}
-
-/*--------------------------------------------------------------
-# Skills
---------------------------------------------------------------*/
-.skills .progress {
-  height: 60px;
-  display: block;
-  background: none;
-  border-radius: 0;
-}
-
-.skills .progress .skill {
-  padding: 10px 0;
-  margin: 0;
-  text-transform: uppercase;
-  display: block;
-  font-weight: 600;
-  font-family: "Poppins", sans-serif;
-  color: #45505b;
-}
-
-.skills .progress .skill .val {
-  float: right;
-  font-style: normal;
-}
-
-.skills .progress-bar-wrap {
-  background: #f2f3f5;
-}
-
-.skills .progress-bar {
-  width: 1px;
-  height: 10px;
-  transition: 0.9s;
-  background-color: #0563bb;
-}
-
-.progress-bar {
-  width: 0;
-  transition: width 1s ease-in-out;
-}
-
-.progress.active .progress-bar {
-  animation: progress-bar-stripes 1s linear infinite;
-}
-
-/*--------------------------------------------------------------
 # Resume
 --------------------------------------------------------------*/
 .resume .resume-title {
@@ -752,71 +665,6 @@ section {
 }
 
 /*--------------------------------------------------------------
-# Portfolio Details
---------------------------------------------------------------*/
-.portfolio-details {
-  padding-top: 40px;
-}
-
-.portfolio-details .portfolio-details-slider img {
-  width: 100%;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination {
-  margin-top: 20px;
-  position: relative;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet {
-  width: 12px;
-  height: 12px;
-  background-color: #fff;
-  opacity: 1;
-  border: 1px solid #0563bb;
-}
-
-.portfolio-details .portfolio-details-slider .swiper-pagination .swiper-pagination-bullet-active {
-  background-color: #0563bb;
-}
-
-.portfolio-details .portfolio-info {
-  padding: 30px;
-  box-shadow: 0px 0 30px rgba(69, 80, 91, 0.08);
-}
-
-.portfolio-details .portfolio-info h3 {
-  font-size: 22px;
-  font-weight: 700;
-  margin-bottom: 20px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #eee;
-}
-
-.portfolio-details .portfolio-info ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
-}
-
-.portfolio-details .portfolio-info ul li+li {
-  margin-top: 10px;
-}
-
-.portfolio-details .portfolio-description {
-  padding-top: 30px;
-}
-
-.portfolio-details .portfolio-description h2 {
-  font-size: 26px;
-  font-weight: 700;
-  margin-bottom: 20px;
-}
-
-.portfolio-details .portfolio-description p {
-  padding: 0;
-}
-
-/*--------------------------------------------------------------
 # Contact
 --------------------------------------------------------------*/
 .contact .info {
@@ -943,11 +791,6 @@ section {
 .contact .php-email-form button[type=submit]:hover {
   background: #0678e3;
 }
-
-@keyframes animate-loading {
-  0% {
-    transform: rotate(0deg);
-  }
 
   100% {
     transform: rotate(360deg);
@@ -1148,51 +991,6 @@ section {
     height: 600px;
     width: 100%;
 	position: relative;
-}
-
-.ol-popup {
-	position: absolute;
-	background-color: white;
-	-webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-	filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-	padding: 15px;
-	border-radius: 10px;
-	border: 1px solid #ccc;
-	bottom: 12px;
-	left: -50px;
-	min-width: 280px;
-}
-.ol-popup:after, .ol-popup:before {
-	top: 100%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-.ol-popup:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: white;
-	border-width: 10px;
-	left: 48px;
-	margin-left: -10px;
-}
-.ol-popup:before {
-	border-color: rgba(204, 204, 204, 0);
-	border-top-color: #cccccc;
-	border-width: 11px;
-	left: 48px;
-	margin-left: -11px;
-}
-.ol-popup-closer {
-	text-decoration: none;
-	position: absolute;
-	top: 2px;
-	right: 8px;
-}
-.ol-popup-closer:after {
-	content: "✖";
 }
 
 /* Style for the filter container */
