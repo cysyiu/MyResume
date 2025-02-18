@@ -1,5 +1,4 @@
 // 1. Constants and Configurations
-let map;
 const HONG_KONG_CENTER = [114.1095, 22.3964];
 const RAINFALL_RANGES = [0, 20, 40, 60, 80, 100];
 
@@ -9,10 +8,17 @@ async function fetchWeatherData() {
     return await response.json();
 }
 
+async function fetchWeatherForecast() {
+    const response = await fetch('https://data.weather.gov.hk/weatherAPI/opendata/weather.php?dataType=fnd&lang=en');
+    return await response.json();
+}
+
 async function fetchWeatherStations() {
     const response = await fetch('https://services3.arcgis.com/6j1KwZfY2fZrfNMR/arcgis/rest/services/Network_of_weather_stations_in_Hong_Kong/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson');
     return await response.json();
 }
+
+
 
 // 3. Styling Functions
 function getRainfallColor(value) {
@@ -78,28 +84,100 @@ function getDistrictStyle(feature, weatherData) {
 
 
 // 4. Map Initialization
-map = new ol.Map({
-    target: 'WeatherMap',
+// Create the map object
+const map = new ol.Map({
+    target: 'map',
     layers: [
         new ol.layer.Tile({
             source: new ol.source.XYZ({
-                url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/wgs84/{z}/{x}/{y}.png',
-                visible: true
+                url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/wgs84/{z}/{x}/{y}.png'
             })
         }),
         new ol.layer.Tile({
             source: new ol.source.XYZ({
-                url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/wgs84/{z}/{x}/{y}.png',
-                visible: true
+                url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/wgs84/{z}/{x}/{y}.png'
             })
         })
     ],
     view: new ol.View({
-        center: ol.proj.fromLonLat(HONG_KONG_CENTER),
-        zoom: 10.3,
-        constrainResolution: true
+        center: ol.proj.fromLonLat(HONG_KONG_CENTER), // Center on Hong Kong
+        zoom: 10.3
     })
 });
+
+// Function to use user's location and add a pin
+function useMyLocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const coords = [position.coords.longitude, position.coords.latitude];
+            const transformedCoords = ol.proj.fromLonLat(coords);
+
+            // Create a marker feature with a pin icon
+            const marker = new ol.Feature({
+                geometry: new ol.geom.Point(transformedCoords)
+            });
+            const iconStyle = new ol.style.Style({
+                image: new ol.style.Icon({
+                    src: './pin.png', // Ensure the path to your downloaded pin icon is correct
+                    scale: 0.07,  // Adjust the scale if needed
+                    anchor: [0.5, 1] // Anchor point at the middle bottom of the icon
+                })
+            });
+            marker.setStyle(iconStyle);
+
+            // Create a vector source and layer to hold the marker
+            const vectorSource = new ol.source.Vector({
+                features: [marker]
+            });
+            const vectorLayer = new ol.layer.Vector({
+                source: vectorSource
+            });
+
+            // Add the vector layer to the map
+            map.addLayer(vectorLayer);
+
+            // Pan the map to the user's location and add an animation
+            map.getView().animate({
+                center: transformedCoords,
+                zoom: 15,
+                duration: 1500
+            });
+        }, (error) => {
+            console.error('Error retrieving location: ', error);
+        });
+    } else {
+        alert('Geolocation is not supported by this browser.');
+    }
+}
+
+// Function to return to the default zoom level and center
+function goToHome() {
+    map.getView().animate({
+        center: ol.proj.fromLonLat(HONG_KONG_CENTER), // Center on Hong Kong
+        zoom: 10.3,
+        duration: 1500
+    });
+}
+
+// Add an image element for the "My Location" button
+const myLocationButton = document.createElement('img');
+myLocationButton.id = 'mylocation-button'; // Set an ID to apply CSS
+myLocationButton.src = './myLocation.png'; // Replace with the path to your custom button image
+myLocationButton.alt = 'My Location';
+myLocationButton.onclick = useMyLocation;
+document.body.appendChild(myLocationButton);
+
+// Add an image element for the "Home" button
+const homeButton = document.createElement('img');
+homeButton.id = 'home-button'; // Set an ID to apply CSS
+homeButton.src = './home.png'; // Replace with the path to your custom home button image
+homeButton.alt = 'Home';
+homeButton.onclick = goToHome;
+document.body.appendChild(homeButton);
+
+
+
+
 
 // 5. Layer Management
 function initializeDistrictLayer() {
@@ -119,9 +197,9 @@ function initializeDistrictLayer() {
                 }
             });
             map.addLayer(vectorLayer);
-        });
+        })
+        .catch(error => console.error('Error fetching GeoJSON:', error));
 }
-
 
 async function addWeatherStationsLayer() {
     const [stationsGeoJson, weatherData] = await Promise.all([
@@ -202,7 +280,7 @@ function createLegend() {
         }
     });
     
-    document.getElementById('WeatherMap').appendChild(legend);
+    document.getElementById('map').appendChild(legend);
 }
 
 // 8. Weather Box
@@ -249,12 +327,84 @@ function createWeatherBox() {
     weatherBox.appendChild(divider);
     weatherBox.appendChild(timeUpdate);
     
-    document.getElementById('WeatherMap').appendChild(weatherBox);
+    document.getElementById('map').appendChild(weatherBox);
+}
+
+// Weather Forecast
+function createWeatherForecast() {
+    const weatherFBox = document.createElement('div');
+    weatherFBox.className = 'weather-forecast-box';
+
+    const title = document.createElement('div');
+    title.className = 'weather-forecast-title';
+    title.textContent = 'Weather Forecast';
+
+    const toggleButton = document.createElement('div');
+    toggleButton.className = 'toggle-button';
+    toggleButton.textContent = '>';
+
+    async function updateWeatherForecast() {
+        const weatherFData = await fetchWeatherForecast();
+        const forecastList = document.createElement('ul');
+        forecastList.className = 'weather-forecast-list';
+
+        weatherFData.weatherForecast.slice(0, 7).forEach(forecast => {
+            const listItem = document.createElement('li');
+            listItem.className = 'weather-forecast-item';
+
+            const forecastDate = document.createElement('div');
+            forecastDate.className = 'forecast-date';
+            forecastDate.innerHTML = formatForecastDate(forecast.forecastDate);
+
+            const forecastIcon = document.createElement('img');
+            forecastIcon.className = 'forecast-icon';
+            forecastIcon.src = `https://www.hko.gov.hk/images/HKOWxIconOutline/pic${forecast.ForecastIcon}.png`;
+
+            const forecastTemps = document.createElement('div');
+            forecastTemps.className = 'forecast-temps';
+            forecastTemps.innerHTML = `Max: ${forecast.forecastMaxtemp.value}°C<br>Min: ${forecast.forecastMintemp.value}°C`;
+            forecastTemps.style.fontSize = '11px';
+
+            listItem.appendChild(forecastDate);
+            listItem.appendChild(forecastIcon);
+            listItem.appendChild(forecastTemps);
+            forecastList.appendChild(listItem);
+        });
+
+        weatherFBox.appendChild(title);
+        weatherFBox.appendChild(forecastList);
+    }
+
+    function formatForecastDate(forecastDate) {
+        const year = forecastDate.substring(0, 4);
+        const month = forecastDate.substring(4, 6);
+        const day = forecastDate.substring(6, 8);
+        const date = new Date(year, month - 1, day);
+        const options = { weekday: 'short' };
+        const dayOfWeek = new Intl.DateTimeFormat('en-US', options).format(date);
+        return `${day}/${month}<span style="font-size: 12px;">(${dayOfWeek})</span>`;
+    }
+
+    toggleButton.addEventListener('click', () => {
+        if (weatherFBox.style.display === 'none') {
+            weatherFBox.style.display = 'block';
+            toggleButton.textContent = '>';
+        } else {
+            weatherFBox.style.display = 'none';
+            toggleButton.textContent = '<';
+        }
+    });
+
+    updateWeatherForecast();
+
+    document.getElementById('map').appendChild(weatherFBox);
+    document.getElementById('map').appendChild(toggleButton);
 }
 
 
 
-// 9. Event Handlers
+
+// Event Handlers
 async function handleMapClick(evt, popupContent, popup) {
     const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
         return {feature: feature, layer: layer};
@@ -291,58 +441,15 @@ async function handleMapClick(evt, popupContent, popup) {
     }
 }
 
-// 10. Initialization
-const portfolioSection = document.querySelector('#portfolio');
-const portfolioFilter = document.querySelector('#portfolio-flters li[data-filter=".filter-wd"]');
-
-if (portfolioSection) {
-    new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                map.updateSize();
-            }
-        });
-    }).observe(portfolioSection);
-}
-
+// Initialization
 document.addEventListener('DOMContentLoaded', () => {
-    // Wait for map element to be ready
-    const mapElement = document.getElementById('WeatherMap');
-    
-    // Initialize map only when element exists
-    if (mapElement) {
-        // Create map instance
-        map = new ol.Map({
-            target: 'WeatherMap',
-            layers: [
-                new ol.layer.Tile({
-                    source: new ol.source.XYZ({
-                        url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/basemap/wgs84/{z}/{x}/{y}.png'
-                    })
-                }),
-                new ol.layer.Tile({
-                    source: new ol.source.XYZ({
-                        url: 'https://mapapi.geodata.gov.hk/gs/api/v1.0.0/xyz/label/hk/en/wgs84/{z}/{x}/{y}.png'
-                    })
-                })
-            ],
-            view: new ol.View({
-                center: ol.proj.fromLonLat(HONG_KONG_CENTER),
-                zoom: 10.3
-            })
-        });
-
-        // Initialize layers after map is ready
-		map.once('postrender', () => {
-			initializeDistrictLayer();
-			addWeatherStationsLayer();
-			createLegend();
-			createWeatherBox();
-			
-			const { popup, content } = initializePopup();
-			map.addOverlay(popup);
-			
-			map.on('click', (evt) => handleMapClick(evt, content, popup));
-		})
-    }
+    initializeDistrictLayer();
+    addWeatherStationsLayer();
+    const { popup, content } = initializePopup();
+    map.addOverlay(popup);
+    createLegend();
+    createWeatherBox();
+	createWeatherForecast();
+    map.on('click', (evt) => handleMapClick(evt, content, popup));
 });
+
