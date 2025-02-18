@@ -860,10 +860,10 @@ section {
 /*--------------------------------------------------------------
 # Weather Map
 --------------------------------------------------------------*/
-.portfolio-item.filter-wd {
-    height: 800;
+#map {
+    height: 500px;
     width: 100%;
-    display: block;
+    position: relative;
 }
 
 .ol-tooltip {
@@ -874,6 +874,33 @@ section {
     border-radius: 4px;
     white-space: nowrap;
     font-size: 12px;
+}
+
+#mylocation-button {
+    position: absolute;
+    top: 72px; /* Adjust the position below the zoom buttons */
+    left: 19px; 
+    width: 19px; /* Adjust the size of the button */
+    height: 19px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is on top of other elements */
+    background: rgb(81, 116, 161, 0.7);
+    padding: 3px;
+    border-radius: 2px;
+}
+
+#home-button {
+    position: absolute;
+	top: 100px;
+	left: 19px;
+    width: 19px; /* Adjust the size of the button */
+    height: 19px;
+    cursor: pointer;
+    z-index: 1000; /* Ensure it is on top of other elements */
+    background: rgba(81, 116, 161, 0.7); /* Adjust the background color and transparency */
+    padding: 3px;
+    border-radius: 2px;
+    color: white;
 }
 
 .ol-popup {
@@ -983,6 +1010,68 @@ section {
     height: 50px;
     margin: 10px auto;
 }
+
+.weather-forecast-box {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: white;
+    padding: 12px 15px;
+    border-radius: 5px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    font-size: 14px;
+    z-index: 1000;
+}
+
+.weather-forecast-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.weather-forecast-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.weather-forecast-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.forecast-date {
+    flex: 1;
+    font-weight: bold;
+}
+
+.forecast-icon {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.forecast-description {
+    flex: 2;
+}
+
+.toggle-button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+	z-index: 1000;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
 
 /*--------------------------------------------------------------
 # Earthquake Map
