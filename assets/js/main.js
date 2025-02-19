@@ -139,7 +139,9 @@ const initPortfolioIsotope = () => {
             // If weather dashboard is selected, reinitialize the map
             if (filterValue === '.filter-wd') {
                 setTimeout(() => {
-                    map.updateSize();
+                    if (map && typeof map.updateSize === 'function') {
+						map.updateSize();
+					}
                 }, 100);
             }
             
@@ -209,3 +211,4 @@ const initPortfolioIsotope = () => {
   initPureCounter();
 
 });
+
