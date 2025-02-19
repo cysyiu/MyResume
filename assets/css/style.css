@@ -882,79 +882,115 @@ section {
     font-size: 12px;
 }
 
-#mylocation-button {
-    position: absolute;
-    top: 64px; /* Adjust the position below the zoom buttons */
-    left: 11px; 
-    width: 25px; /* Adjust the size of the button */
-    height: 25px;
-    cursor: pointer;
-    z-index: 1000; /* Ensure it is on top of other elements */
-    background: rgb(81, 116, 161, 0.7);
-    padding: 3px;
-    border-radius: 2px;
+/* Desktop styles */
+@media screen and (min-width: 1025px) {
+    #mylocation-button {
+        position: absolute;
+        top: 64px;
+        left: 11px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1000;
+        background: rgb(81, 116, 161, 0.7);
+        padding: 3px;
+        border-radius: 2px;
+    }
+
+    #home-button {
+        position: absolute;
+        top: 91px;
+        left: 11px;
+        width: 25px;
+        height: 25px;
+        cursor: pointer;
+        z-index: 1000;
+        background: rgba(81, 116, 161, 0.7);
+        padding: 3px;
+        border-radius: 2px;
+        color: white;
+    }
 }
 
-#home-button {
-    position: absolute;
-	top: 91px;
-	left: 11px;
-    width: 25px; /* Adjust the size of the button */
-    height: 25px;
-    cursor: pointer;
-    z-index: 1000; /* Ensure it is on top of other elements */
-    background: rgba(81, 116, 161, 0.7); /* Adjust the background color and transparency */
-    padding: 3px;
-    border-radius: 2px;
-    color: white;
+/* Mobile styles */
+@media screen and (max-width: 1024px) {
+    #mylocation-button {
+        position: absolute;
+        width: 32px;
+        height: auto;
+        min-width: 25px;
+        max-width: 40px;
+        top: 17%;
+        left: 11px;
+        padding: 3px;
+        cursor: pointer;
+        z-index: 1000;
+        background: rgb(81, 116, 161, 0.7);
+        border-radius: 2px;
+    }
+
+    #home-button {
+        position: absolute;
+        width: 32px;
+        height: auto;
+        min-width: 25px;
+        max-width: 40px;
+        top: 24%;
+        left: 11px;
+        padding: 3px;
+        cursor: pointer;
+        z-index: 1000;
+        background: rgba(81, 116, 161, 0.7);
+        border-radius: 2px;
+        color: white;
+    }
 }
 
 .ol-popup {
-        position: absolute;
-        background-color: white;
-        box-shadow: 0 1px 4px rgba(0,0,0,0.2);
-        padding: 15px;
-        border-radius: 10px;
-        border: 1px solid #cccccc;
-        bottom: 12px;
-        left: -50px;
-        min-width: 180px;
-      }
-.ol-popup:after, .ol-popup:before {
-        top: 100%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-      }
+    position: absolute;
+    background-color: white;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.2);
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #cccccc;
+    bottom: 12px;
+    left: -50px;
+    width: fit-content;
+    min-width: 100px;
+    white-space: nowrap; /* Keeps content on single line */
+    overflow: hidden;    /* Prevents content overflow */
+    text-overflow: ellipsis; /* Shows ... for overflow text */
+}
+
+
+/* Triangle pointer */
 .ol-popup:after {
-        border-top-color: white;
-        border-width: 10px;
-        left: 48px;
-        margin-left: -10px;
-      }
-.ol-popup:before {
-        border-top-color: #cccccc;
-        border-width: 11px;
-        left: 48px;
-        margin-left: -11px;
-      }
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 48px;
+    border: 10px solid transparent;
+    border-top-color: white;
+    margin-left: -10px;
+}
+
 .ol-popup-closer {
-        text-decoration: none;
-        position: absolute;
-        top: 2px;
-        right: 8px;
-      }
+    position: absolute;
+    top: 2px;
+    right: 8px;
+    text-decoration: none;
+}
+
 .ol-popup-closer:after {
-        content: "✖";
-      }
+    content: "✖";
+}
+
+
 	  
 .map-legend {
     position: absolute;
-    bottom: 20px;
-    left: 20px;
+    bottom: 5px;
+    left: 5px;
     background-color: white;
     box-shadow: 0 1px 4px rgba(0,0,0,0.2);
     padding: 15px;
@@ -983,8 +1019,8 @@ section {
 
 .weather-box {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 5px;
+    right: 5px;
     background-color: white;
     padding: 12px 15px;
     border-radius: 5px;
@@ -1019,8 +1055,8 @@ section {
 
 .weather-forecast-box {
     position: absolute;
-    bottom: 20px;
-    right: 20px;
+    bottom: 5px;
+    right: 5px;
     background-color: white;
     padding: 12px 15px;
     border-radius: 5px;
@@ -1063,8 +1099,8 @@ section {
 
 .toggle-button {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 0px;
+    right: 0px;
 	z-index: 1000;
     background-color: white;
     border: 1px solid #ddd;
@@ -1086,51 +1122,6 @@ section {
     height: 600px;
     width: 100%;
 	position: relative;
-}
-
-.ol-popup {
-	position: absolute;
-	background-color: white;
-	-webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-	filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-	padding: 15px;
-	border-radius: 10px;
-	border: 1px solid #ccc;
-	bottom: 12px;
-	left: -50px;
-	min-width: 280px;
-}
-.ol-popup:after, .ol-popup:before {
-	top: 100%;
-	border: solid transparent;
-	content: " ";
-	height: 0;
-	width: 0;
-	position: absolute;
-	pointer-events: none;
-}
-.ol-popup:after {
-	border-color: rgba(255, 255, 255, 0);
-	border-top-color: white;
-	border-width: 10px;
-	left: 48px;
-	margin-left: -10px;
-}
-.ol-popup:before {
-	border-color: rgba(204, 204, 204, 0);
-	border-top-color: #cccccc;
-	border-width: 11px;
-	left: 48px;
-	margin-left: -11px;
-}
-.ol-popup-closer {
-	text-decoration: none;
-	position: absolute;
-	top: 2px;
-	right: 8px;
-}
-.ol-popup-closer:after {
-	content: "✖";
 }
 
 /* Style for the filter container */
