@@ -248,18 +248,81 @@ const fetchEarthquakeData = async (alertLevel, startDate, endDate) => {
                     });
 
                     emap.addLayer(vectorLayer);
+					
+					// Add this at the beginning with your other global variables
+					let selectedFeature = null;
+					// Style Settings
+					const createEarthquakeStyle = (alert) => {
+						let color;
+						switch (alert) {
+							case 'green':
+								color = 'green';
+								break;
+							case 'yellow':
+								color = 'yellow';
+								break;
+							case 'orange':
+								color = 'orange';
+								break;
+							case 'red':
+								color = 'red';
+								break;
+							default:
+								color = 'gray';
+						}
 
-                    emap.on('singleclick', function (evt) {
-                        emap.forEachFeatureAtPixel(evt.pixel, function (clickedFeature) {
-                            if (clickedFeature === feature) {
-                                const coordinates = clickedFeature.getGeometry().getCoordinates();
-                                popupContent.innerHTML = `<div style="font-size: 1em;"><strong>${title}</strong></div>
-                                                          <hr>
-                                                          <div style="font-size: 0.8em;">${formattedTime}</div>`
-                                popup.setPosition(coordinates);
-                            }
-                        });
-                    });
+						return new ol.style.Style({
+							image: new ol.style.Circle({
+								radius: hollowCircleRadiusPx,
+								stroke: new ol.style.Stroke({
+									color: color,
+									width: 2
+								}),
+								fill: new ol.style.Fill({
+									color: 'rgba(255, 0, 0, 0.0)'
+								})
+							})
+						});
+					};
+
+					// Modify the click event handler in fetchEarthquakeData
+					emap.on('singleclick', function (evt) {
+						// Reset previous selection if exists
+						if (selectedFeature) {
+							const originalStyle = createEarthquakeStyle(selectedFeature.get('alert'));
+							selectedFeature.setStyle(originalStyle);
+						}
+
+						emap.forEachFeatureAtPixel(evt.pixel, function (clickedFeature) {
+							if (clickedFeature === feature) {
+								// Set new selection
+								selectedFeature = clickedFeature;
+								
+								// Create highlighted style
+								const highlightStyle = new ol.style.Style({
+									image: new ol.style.Circle({
+										radius: hollowCircleRadiusPx,
+										stroke: new ol.style.Stroke({
+											color: 'red',
+											width: 3
+										}),
+										fill: new ol.style.Fill({
+											color: 'rgba(255, 0, 0, 0.1)'
+										})
+									})
+								});
+
+								// Apply highlight style
+								clickedFeature.setStyle(highlightStyle);
+
+								const coordinates = clickedFeature.getGeometry().getCoordinates();
+								popupContent.innerHTML = `<div style="font-size: 1em;"><strong>${title}</strong></div>
+														<hr>
+														<div style="font-size: 0.8em;">${formattedTime}</div>`
+								popup.setPosition(coordinates);
+							}
+						});
+					});
                 }
             }
         });
