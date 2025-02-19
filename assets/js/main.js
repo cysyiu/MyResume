@@ -136,14 +136,6 @@ const initPortfolioIsotope = () => {
             const filterValue = this.getAttribute('data-filter');
             portfolioIsotope.arrange({ filter: filterValue });
             
-            // If weather dashboard is selected, reinitialize the map
-            if (filterValue === '.filter-wd') {
-                setTimeout(() => {
-                    if (map && typeof map.updateSize === 'function') {
-						map.updateSize();
-					}
-                }, 100);
-            }
             
             portfolioIsotope.on('arrangeComplete', () => AOS.refresh());
         }, true);
