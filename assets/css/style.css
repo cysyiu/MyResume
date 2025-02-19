@@ -540,12 +540,12 @@ section {
     padding: 10px;
 }
 
-.filter-wd #map {
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
-}
+/* .filter-wd #map { */
+    /* width: 100%; */
+    /* height: 100%; */
+    /* border-radius: 5px; */
+    /* box-shadow: 0 0 30px rgba(0, 0, 0, 0.1); */
+/* } */
 
 
 .portfolio .portfolio-wrap::before {
@@ -658,12 +658,12 @@ section {
   right: 15px;
 }
 
-.map {
-  width: 100%;
-  height: 400px;
-  margin: 0;
-  padding: 0;
-}
+/* .map { */
+  /* width: 100%; */
+  /* height: 400px; */
+  /* margin: 0; */
+  /* padding: 0; */
+/* } */
 
 /*--------------------------------------------------------------
 # Contact
@@ -866,7 +866,7 @@ section {
 /*--------------------------------------------------------------
 # Weather Map
 --------------------------------------------------------------*/
-#map {
+#WeatherMap {
     height: 500px;
     width: 100%;
     position: relative;
@@ -1167,8 +1167,8 @@ section {
 /* Style for the reference chart */
 .reference-container {
     position: absolute;
-    bottom: 10px;
-    right: 10px;
+    bottom: 5px;
+    right: 15px;
     background-color: white;
     border: 1px solid #ccc;
     padding: 5px;
