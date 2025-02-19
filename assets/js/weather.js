@@ -194,6 +194,12 @@ function initializeWeatherMap() {
 		});
 	}
 
+
+
+
+
+
+
 	// 5. Layer Management
 	function initializeDistrictLayer() {
 		fetch('https://services3.arcgis.com/6j1KwZfY2fZrfNMR/arcgis/rest/services/Hong_Kong_18_Districts/FeatureServer/0/query?outFields=*&where=1%3D1&f=geojson')
@@ -426,6 +432,15 @@ function initializeWeatherMap() {
 		});
 		
 		if (feature) {
+			// Get clicked coordinates
+			const clickedCoordinate = evt.coordinate;
+			
+			// Animate map to center on clicked feature
+			map.getView().animate({
+				center: clickedCoordinate,
+				duration: 500  // Animation duration in milliseconds
+			});
+			
 			if (feature.feature.get('ENAME')) {
 				const districtName = feature.feature.get('ENAME');
 				const weatherData = await fetchWeatherData();
@@ -438,7 +453,7 @@ function initializeWeatherMap() {
 				
 				if (rainfallData) {
 					popupContent.innerHTML = `${districtName}: ${rainfallData.max} mm`;
-					popup.setPosition(evt.coordinate);
+					popup.setPosition(clickedCoordinate);
 				}
 			} else if (feature.feature.get('Name_en')) {
 				const stationName = feature.feature.get('Name_en');
@@ -450,19 +465,23 @@ function initializeWeatherMap() {
 				
 				if (tempData) {
 					popupContent.innerHTML = `${stationName}: ${tempData.value}°C`;
-					popup.setPosition(evt.coordinate);
+					popup.setPosition(clickedCoordinate);
 				}
 			}
 		}
 	}
-
 }
+
+let hasInitialized = false;
 
 document.addEventListener('DOMContentLoaded', function() {
     const weatherFilter = document.querySelector('[data-filter=".filter-wd"]');
     if (weatherFilter) {
         weatherFilter.addEventListener('click', function() {
-            setTimeout(initializeWeatherMap, 100);
+            if (!hasInitialized) {
+                setTimeout(initializeWeatherMap, 100);
+                hasInitialized = true;
+            }
         });
     }
 });
