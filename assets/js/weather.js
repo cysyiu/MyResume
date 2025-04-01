@@ -87,8 +87,8 @@ function initializeWeatherMap() {
 
 	// 4. Map Initialization
 	// Create the map object
-	const map = new ol.Map({
-		target: 'map',
+	const WeatherMap = new ol.Map({
+		target: 'WeatherMap',
 		layers: [
 			new ol.layer.Tile({
 				source: new ol.source.XYZ({
@@ -109,36 +109,36 @@ function initializeWeatherMap() {
 
 	// Wait for map to be ready before adding components
     function addMapButtons() {
-        const mapElement = document.getElementById('map');
+        const mapElement = document.getElementById('WeatherMap');
         
         const myLocationButton = document.createElement('img');
         myLocationButton.id = 'mylocation-button';
         myLocationButton.src = './assets/img/weatherMap/myLocation.png';
         myLocationButton.alt = 'My Location';
-        myLocationButton.onclick = () => useMyLocation(map);
+        myLocationButton.onclick = () => useMyLocation(WeatherMap);
         mapElement.appendChild(myLocationButton);
 
         const homeButton = document.createElement('img');
         homeButton.id = 'home-button';
         homeButton.src = './assets/img/weatherMap/home.png';
         homeButton.alt = 'Home';
-        homeButton.onclick = () => goToHome(map);
+        homeButton.onclick = () => goToHome(WeatherMap);
         mapElement.appendChild(homeButton);
     }
 
-    map.once('postrender', function() {
+    WeatherMap.once('postrender', function() {
         initializeDistrictLayer();
         addWeatherStationsLayer();
         const { popup, content } = initializePopup();
-        map.addOverlay(popup);
+        WeatherMap.addOverlay(popup);
         addMapButtons(); // Add buttons after map renders
         createLegend();
         createWeatherBox();
         createWeatherForecast();
-        map.on('click', (evt) => handleMapClick(evt, content, popup));
+        WeatherMap.on('click', (evt) => handleMapClick(evt, content, popup));
     });
 
-    return map;
+    return WeatherMap;
 
 	// Function to use user's location and add a pin
 	function useMyLocation() {
@@ -169,10 +169,10 @@ function initializeWeatherMap() {
 				});
 
 				// Add the vector layer to the map
-				map.addLayer(vectorLayer);
+				WeatherMap.addLayer(vectorLayer);
 
 				// Pan the map to the user's location and add an animation
-				map.getView().animate({
+				WeatherMap.getView().animate({
 					center: transformedCoords,
 					zoom: 15,
 					duration: 1500
@@ -187,7 +187,7 @@ function initializeWeatherMap() {
 
 	// Function to return to the default zoom level and center
 	function goToHome() {
-		map.getView().animate({
+		WeatherMap.getView().animate({
 			center: ol.proj.fromLonLat(HONG_KONG_CENTER), // Center on Hong Kong
 			zoom: 10.3,
 			duration: 1500
@@ -217,7 +217,7 @@ function initializeWeatherMap() {
 						return getDistrictStyle(feature, weatherData);
 					}
 				});
-				map.addLayer(vectorLayer);
+				WeatherMap.addLayer(vectorLayer);
 			})
 			.catch(error => console.error('Error fetching GeoJSON:', error));
 	}
@@ -240,7 +240,7 @@ function initializeWeatherMap() {
 			zIndex: 2
 		});
 
-		map.addLayer(stationLayer);
+		WeatherMap.addLayer(stationLayer);
 	}
 
 	// 6. Popup Management
@@ -301,7 +301,7 @@ function initializeWeatherMap() {
 			}
 		});
 		
-		document.getElementById('map').appendChild(legend);
+		document.getElementById('WeatherMap').appendChild(legend);
 	}
 
 	// 8. Weather Box
@@ -348,7 +348,7 @@ function initializeWeatherMap() {
 		weatherBox.appendChild(divider);
 		weatherBox.appendChild(timeUpdate);
 		
-		document.getElementById('map').appendChild(weatherBox);
+		document.getElementById('WeatherMap').appendChild(weatherBox);
 	}
 
 	// Weather Forecast
@@ -418,8 +418,8 @@ function initializeWeatherMap() {
 
 		updateWeatherForecast();
 
-		document.getElementById('map').appendChild(weatherFBox);
-		document.getElementById('map').appendChild(toggleButton);
+		document.getElementById('WeatherMap').appendChild(weatherFBox);
+		document.getElementById('WeatherMap').appendChild(toggleButton);
 	}
 
 
@@ -427,7 +427,7 @@ function initializeWeatherMap() {
 
 	// Event Handlers
 	async function handleMapClick(evt, popupContent, popup) {
-		const feature = map.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
+		const feature = WeatherMap.forEachFeatureAtPixel(evt.pixel, function(feature, layer) {
 			return {feature: feature, layer: layer};
 		});
 		
@@ -436,7 +436,7 @@ function initializeWeatherMap() {
 			const clickedCoordinate = evt.coordinate;
 			
 			// Animate map to center on clicked feature
-			map.getView().animate({
+			WeatherMap.getView().animate({
 				center: clickedCoordinate,
 				duration: 500  // Animation duration in milliseconds
 			});
