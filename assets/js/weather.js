@@ -472,16 +472,29 @@ function initializeWeatherMap() {
 	}
 }
 
+let weatherMap = null;
 let hasInitialized = false;
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Add event listener to the weather filter
     const weatherFilter = document.querySelector('[data-filter=".filter-wd"]');
     if (weatherFilter) {
         weatherFilter.addEventListener('click', function() {
             if (!hasInitialized) {
-                setTimeout(initializeWeatherMap, 100);
-                hasInitialized = true;
+                // Give the DOM time to update after filter click
+                setTimeout(() => {
+                    const mapContainer = document.getElementById('WeatherMap');
+                    if (mapContainer && !hasInitialized) {
+                        weatherMap = initializeWeatherMap();
+                        hasInitialized = true;
+                        console.log("Weather map initialized");
+                    } else {
+                        console.log("Map container not found or already initialized");
+                    }
+                }, 300);
             }
         });
+    } else {
+        console.log("Weather filter not found");
     }
 });
