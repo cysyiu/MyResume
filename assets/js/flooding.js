@@ -68,7 +68,7 @@ function initializeFloodingMap() {
                 boxCenterHeight // Position at the center of the box
             ),
             box: {
-                dimensions: new Cesium.Cartesian3(70000, 40000, boxHeight), // Width, depth, and height
+                dimensions: new Cesium.Cartesian3(80000, 50000, boxHeight), // Width, depth, and height
                 material: Cesium.Color.LIGHTBLUE.withAlpha(0.6),
                 outline: true,
                 outlineColor: Cesium.Color.WHITE.withAlpha(0.8)
